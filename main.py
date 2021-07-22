@@ -1,12 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
-from get_data import html
+from get_data import get_data_html
 import json
 
-soup = BeautifulSoup(html, 'html.parser')
+terms_history_html, quick_reference_html = get_data_html(True)
+
+soup = BeautifulSoup(terms_history_html, 'html.parser')
 names_terms = []
-
-
 
 theads = soup.find_all('thead')
 for x in theads:
@@ -49,6 +49,7 @@ js = json.dumps(to_json_data)
 with open ('data4.json', 'w') as jsonFile:
     jsonFile.write(js)
 
+"""
 #json_data = json.loads(js)
 #print(len(json_data))
-
+"""
