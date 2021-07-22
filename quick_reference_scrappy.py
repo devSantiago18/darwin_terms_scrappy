@@ -31,3 +31,7 @@ dic_class = dict(zip(class_names, terms))
 json_class = json.dumps(dic_class)
 with open ('categories.json', 'w') as jsonFile:
     jsonFile.write(json_class)
+
+
+
+print(len(dic_class))

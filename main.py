@@ -24,6 +24,7 @@ td_list.pop(0)# para quitar la primera tabla que es la descripcion de los namesp
 
 FLAT = True
 d = [] 
+attrs = set()
 for td in td_list:
     keys = []
     values = []
@@ -31,9 +32,11 @@ for td in td_list:
         if FLAT:
             if elem.text == '':
                 keys.append('Deprecated')
+                attrs.add("Deprecated")
                 #count +=  # si funciona
             else:
                 keys.append(elem.text)
+                attrs.add(elem.text)
         else:
             values.append(elem.text)
         FLAT = not FLAT
@@ -41,9 +44,17 @@ for td in td_list:
     
 dict_terms_history = dict(zip(names_terms, d))
 
-    
+
     
 
 js = json.dumps(dict_terms_history)
 with open ('list_history.json', 'w') as jsonFile:
     jsonFile.write(js)
+
+
+js1 = json.dumps(sorted(list(attrs), reverse=True))
+with open ('atributos.json', 'w') as jsonFile:
+    jsonFile.write(js1)
+
+
+
