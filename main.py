@@ -46,8 +46,6 @@ print(len(to_json_data.keys()))
 
 #js = json.dumps(dict(zip(names_terms, obj)))
 js = json.dumps(to_json_data)
-with open ('data4.json', 'w') as jsonFile:
-    jsonFile.write(js)
 
 """
 #json_data = json.loads(js)
