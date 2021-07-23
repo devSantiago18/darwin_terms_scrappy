@@ -13,7 +13,7 @@ async def create_folders():
 
 
 async def exc_module(module):
-    os.system(f'python {module}')
+    os.system(f'python src{separador}{module}')
 
 
 async def main():
