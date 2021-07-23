@@ -45,16 +45,21 @@ for td in td_list:
 dict_terms_history = dict(zip(names_terms, d))
 
 
-    
 
+def save_json(name, data):
+    with open (f'./resources/json/{name}.json', 'w') as jsonFile:
+        jsonFile.write(json.dumps(data))
+
+save_json('list_history', dict_terms_history)
+save_json('atributos', sorted(list(attrs), reverse=True))
+
+"""
 js = json.dumps(dict_terms_history)
-with open ('list_history.json', 'w') as jsonFile:
+with open ('./resources/json/list_history.json', 'w') as jsonFile:
     jsonFile.write(js)
 
 
 js1 = json.dumps(sorted(list(attrs), reverse=True))
-with open ('atributos.json', 'w') as jsonFile:
+with open ('./resources/json/atributos.json', 'w') as jsonFile:
     jsonFile.write(js1)
-
-
-
+"""

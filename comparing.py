@@ -1,6 +1,5 @@
-""" comparar el historial de terminos con los terminos soportados actualmente y saber en que categoria se encuentran"""
-history_tems = open('list_history.json', 'r').read()
-categories_terms = open('categories.json', 'r').read()
+history_tems = open('./resources/json/list_history.json', 'r').read()
+categories_terms = open('./resources/json/categories.json', 'r').read()
 
 import json
 term_categories = json.loads(categories_terms)
@@ -8,8 +7,8 @@ term_history = json.loads(history_tems)
 
 
 def str_ult_name(name:str):
-    index = name.index(':')
-    return name[index+1:]
+    index = name.index(':') + 1
+    return name[index:]
 
 
 terms = term_history.keys()
@@ -33,16 +32,6 @@ for key, value in dic_new_categories.items():
     dic_new_categories[key] = list(dict.fromkeys(value))
 
 json_class = json.dumps(dic_new_categories)
-with open ('clasifications.json', 'w') as jsonFile:
+with open ('./resources/json/clasifications.json', 'w') as jsonFile:
     jsonFile.write(json_class)
 
-"""
-for categorie, items in term_categories.items():
-    for term in terms:
-        if term in items:
-            dic_new_categories[categorie].append(term)
-            flat_noone = False
-        
-"""
-print(dic_new_categories)
-#for categories, items in by_categories:

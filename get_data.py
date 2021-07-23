@@ -1,6 +1,6 @@
 import urllib.request
 
-NAMES = ('list_history.html', 'quick_reference.html')
+NAMES = ('./resources/pages/list_history.html', './resources/pages/quick_reference.html')
 
 
 def update_html_docs():

@@ -2,15 +2,16 @@ from os import name
 from openpyxl import Workbook
 import json
 
-categories = json.loads(open('categories.json', 'r').read())
-atributos = list(json.loads(open('atributos.json', 'r').read()))
-clasifications = json.loads(open('clasifications.json', 'r').read())
-history_tems = json.loads(open('list_history.json', 'r').read())
+categories = json.loads(open('./resources/json/categories.json', 'r').read())
+atributos = list(json.loads(open('./resources/json/atributos.json', 'r').read()))
+clasifications = json.loads(open('./resources/json/clasifications.json', 'r').read())
+history_tems = json.loads(open('./resources/json/list_history.json', 'r').read())
 
 
-deprecated = atributos.pop(2)
-list_colums = ["darwin core terms","Section", deprecated, *atributos]
-print(list_colums, type(list_colums))
+deprecated = atributos.pop(atributos.index('Deprecated'))
+remplace_by = atributos.pop(atributos.index("Is replaced by"))
+list_colums = ["darwin core terms","Section", deprecated, remplace_by, *atributos]
+#print(list_colums, type(list_colums))
 
 wb = Workbook()
 hoja = wb.active
@@ -19,8 +20,8 @@ hoja.append(list_colums)
 
 
 def get_setcion(name):
-    index = name.index(':')
-    name = name[index+1:]
+    index = name.index(':') + 1
+    name = name[index:]
     categories_current = []
     for category, items in categories.items():
         if name in items:
