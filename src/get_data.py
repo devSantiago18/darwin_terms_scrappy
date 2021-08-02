@@ -1,3 +1,6 @@
+"""
+    This module has the function of downloading the html content of the necessary pages
+"""
 import urllib.request
 
 NAMES = ('./resources/pages/list_history.html', './resources/pages/quick_reference.html')

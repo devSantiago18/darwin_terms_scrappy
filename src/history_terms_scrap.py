@@ -1,3 +1,7 @@
+"""
+    this module scrapes in the document collected by 'get_data.py' to create a json
+    that contains all the terms of the Darwin Core standard exposed in your web
+"""
 import requests
 from bs4 import BeautifulSoup
 from get_data import get_data_html
@@ -53,13 +57,3 @@ def save_json(name, data):
 save_json('list_history', dict_terms_history)
 save_json('atributos', sorted(list(attrs), reverse=True))
 
-"""
-js = json.dumps(dict_terms_history)
-with open ('./resources/json/list_history.json', 'w') as jsonFile:
-    jsonFile.write(js)
-
-
-js1 = json.dumps(sorted(list(attrs), reverse=True))
-with open ('./resources/json/atributos.json', 'w') as jsonFile:
-    jsonFile.write(js1)
-"""

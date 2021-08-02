@@ -3,7 +3,7 @@ import platform
 import asyncio
 
 separador = "\\" if platform.system() == "Windows" else "/"
-modules_to_excecute = ['main.py', 'quick_reference_scrappy.py', 'comparing.py', "excel_forma.py"]
+modules_to_excecute = ['history_terms_scrap.py', 'quick_reference_scrappy.py', 'comparing.py', "excel_forma.py"]
 
 
 async def create_folders():

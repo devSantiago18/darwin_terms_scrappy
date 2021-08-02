@@ -1,3 +1,6 @@
+"""
+    this module performs scrapping to extract the classes from the darwin core terms
+"""
 history_tems = open('./resources/json/list_history.json', 'r').read()
 categories_terms = open('./resources/json/categories.json', 'r').read()
 

@@ -1,3 +1,7 @@
+"""
+    this module build a xlsx file with all of the terms on Darwin Core
+    showing characteristics, definitions and status (deprecated or not), etc.
+"""
 from os import name
 from openpyxl import Workbook
 import json
